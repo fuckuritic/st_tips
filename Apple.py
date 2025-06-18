@@ -7,7 +7,7 @@ import seaborn as sns
 import warnings
 warnings.filterwarnings('ignore')
 
-st.set_page_config(page_title='Apple Stock', page_icon="🍎")
+st.set_page_config(page_title='Apple stock', page_icon="🍎")
 
 
 # Заголовок
