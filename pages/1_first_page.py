@@ -14,7 +14,7 @@ warnings.filterwarnings('ignore')
 st.set_page_config(page_title='Tips', page_icon="💸")
 
 
-st.title(':blue[***Исследуем***] :blue[**чаевые**]  :red[за Январь]:dollar:')
+st.title(':blue[***Исследуем чаевые***]  :red[за Январь]:dollar:')
 
 
 
@@ -167,7 +167,9 @@ st.subheader('🔴 **График связи суммы счета к чаевы
 fig = px.scatter(df, x='total_bill', 
                  y='tip', 
                  size='size', # Количпество человек у счета
-                 labels={'total_bill': 'Сумма счета', 'tip': 'Чаевые'},
+                 color='size',
+                 color_continuous_scale='Viridis',
+                 labels={'total_bill': 'Сумма счета', 'tip': 'Чаевые', 'size': 'Количество человек'},
                  opacity=0.7)
 
 fig.update_traces(

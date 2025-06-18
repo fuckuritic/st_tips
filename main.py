@@ -22,11 +22,15 @@ tickerSymbol = "AAPL"
 tickerData = yf.Ticker(tickerSymbol)
 tickerDf = tickerData.history(period="1d", start="2025-1-01", end="2025-6-16")
 
+# Добавляем запятых для читаемости Рыночной капитализации
+market_cap = tickerData.info['marketCap'] 
+formatted_cap = f'{market_cap:,}'
+
 # Информация о компании
 st.sidebar.header(":blue[**Основная информация о компании**]")
 st.sidebar.write(f":green[***Тикер***] :red[**{tickerSymbol}**]")
 st.sidebar.write(
-    f":green[***Рыночная капитализация:***] :red[**{tickerData.info['marketCap']} $**]"
+    f":green[***Рыночная капитализация:***] :red[**{formatted_cap} $**]"
 )
 st.sidebar.write(f":green[***Сектор:***] :red[**{tickerData.info['sector']}**]")
 st.sidebar.write(f":green[***Отрасль:***] :red[**{tickerData.info['industry']}**]")
